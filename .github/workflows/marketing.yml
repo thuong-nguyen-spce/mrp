@@ -1,15 +1,15 @@
-name: deploy-markerting
+name: deploy-marketing
 
 on:
   push:
     branches:
       - main
     paths:
-      - "packages/markerting/**"
+      - "packages/marketing/**"
 
 defaults:
   run:
-    working-directory: packages/markerting
+    working-directory: packages/marketing
 
 jobs:
   build:
@@ -22,7 +22,7 @@ jobs:
       - name: Build
         run: npm run build
       - uses: chrislennon/action-aws-cli@v1
-      - run: aws s3 sync dist s3://${{ secrets.AWS_S3_BUCKET_NAME }}/markerting/latest
+      - run: aws s3 sync dist s3://${{ secrets.AWS_S3_BUCKET_NAME }}/marketing/latest
         env:
           AWS_ACCESS_KEY_ID: ${{ secrets.AWS_ACCESS_KEY_ID }}
           AWS_SECRET_ACCESS_KEY: ${{ secrets.AWS_SECRET_ACCESS_KEY }}
