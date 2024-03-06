@@ -17,7 +17,6 @@ export default ({ onSignIn }) => {
       },
       onSignIn: () => {
         onSignIn();
-        console.log("User signed in");
       },
     });
     history.listen(onParentNavigate);
